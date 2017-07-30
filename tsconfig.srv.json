@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"outDir": "wwwdocs/api"
+	},
+	"include": [
+		"./app/**/*.ts",
+		"./app/*.ts"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
