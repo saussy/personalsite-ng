@@ -1,0 +1,9 @@
+.projects_div {
+    display: inline-grid;
+    grid-template-columns: 130px 130px 130px;
+    grid-gap: 20px;
+    text-align: center;
+}
+project-thumb {
+    margin: 0 auto;
+}
