@@ -1,5 +1,7 @@
-POST
+<div class="post-title">
+<h1>{{post.post_title}}</h1>
+</div>
 <br>
-{{post.post_title}}
-<br>
-{{post.post_body}}
+<div class="post-content">
+<markdown-to-html [data]="post.post_body"></markdown-to-html>
+</div>

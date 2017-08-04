@@ -1,4 +1,13 @@
-Posts
-<ul>
-    <li *ngFor="let post of posts" routerLink="/posts/{{post.post_id}}"> {{post.post_title}}</li>
-</ul>
+<h2>
+    Posts
+</h2>
+<span class="blurb">
+    A collection of random things I've written
+</span>
+<div class="posts">
+    <div class="post-div" *ngFor="let post of posts" routerLink="/posts/{{post.post_id}}"> 
+        <span class="post-title">{{post.post_title}}</span>
+        <br>
+        <span class="post-summary">{{post.post_summary}}</span>
+    </div>
+</div>
