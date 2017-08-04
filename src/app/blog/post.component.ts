@@ -47,5 +47,11 @@ Header Level 2
 
 `;
         });
+        this.post = {
+            post_body: '',
+            post_id: '',
+            post_summary: '',
+            post_title: ''
+        };
     }
 }
