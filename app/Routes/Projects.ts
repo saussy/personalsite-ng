@@ -1,40 +1,12 @@
 import {Router, Request, Response, NextFunction} from 'express';
-
-const PROJECTS = [
-    {
-        'project_title': 'Yew Bow',
-        'project_id': '1',
-        'project_category': 'bow'
-    },
-    {
-        'project_title': 'Headphone Multiplexor',
-        'project_id': '2',
-        'project_category': 'audio'
-    },
-    {
-        'project_title': 'Personal Website',
-        'project_id': '3',
-        'project_category': 'web'
-    },
-    {
-        'project_title': 'Recurve Bow',
-        'project_id': '4',
-        'project_category': 'bow'
-    },
-    {
-        'project_title': 'Headphone Multiplexor mk 2',
-        'project_id': '5',
-        'project_category': 'audio'
-    },
-    {
-        'project_title': 'Personal Website',
-        'project_id': '6',
-        'project_category': 'web'
-    }
-];
+import * as mongodb from 'mongodb';
+import * as assert from 'assert';
 
 export class ProjectRouter {
     public router: Router;
+    private MongoUrl = 'mongodb://localhost:27017/personalsite';
+    private MongoClient = mongodb.MongoClient;
+    private db;
 
     constructor() {
         this.router = Router();
@@ -43,16 +15,23 @@ export class ProjectRouter {
 
     init(): void {
         this.router.get('/', this.getAll);
-        this.router.get('/:projectId', this.getOne)
+        this.router.get('/:projectId', this.getOne);
+        this.MongoClient.connect(this.MongoUrl, (err, db) => {
+            this.db = db;
+        });
     }
 
-    public getAll(req: Request, res: Response, next: NextFunction): void {
-        res.send(PROJECTS);
+    public getAll = (req: Request, res: Response, next: NextFunction) => {
+        this.db.collection('projects').find({}).toArray((err, docs) => {
+            res.send(docs);
+        });
     }
 
-    public getOne(req: Request, res: Response, next: NextFunction): void {
-        let index = Number(req.params.projectId);
-        res.send(PROJECTS[index]);
+    public getOne = (req: Request, res: Response, next: NextFunction) => {
+        let index = String(req.params.projectId);
+        this.db.collection('projects').find({'project_id': index}).toArray( (err, doc) =>{
+            res.send(doc[0]);
+        });
     }
 }
 
