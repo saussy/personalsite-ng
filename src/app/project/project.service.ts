@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/toPromise';
@@ -7,14 +8,35 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/observable/of';
+ 
 
 @Injectable()
 export class ProjectService {
 
-    constructor() { }
+    private API_URL: string = `/api/v1/projects`;
+
+    constructor(private http: Http) {
+    }
 
     getProjects(): Observable<Project[]> {
-        return Observable.of(PROJECTS);
+        return this.http.get(this.API_URL)
+        .map( res => {
+            return res.json() as Project[];
+        })
+        .do(res => {
+            return res;
+        });
+    }
+
+    getProject(projectId: string): Promise<Project> {
+        return this.http.get(`${this.API_URL}/${projectId}`)
+        .toPromise()
+        .then(
+            res => {
+                let ret = res.json() as Project;
+                return ret;
+            }
+        ).catch(() => {});
     }
 }
 
@@ -23,36 +45,3 @@ export class Project {
     project_id: string;
     project_category: string;
 }
-
-const PROJECTS = [
-    {
-        'project_title': 'Yew Bow',
-        'project_id': '1',
-        'project_category': 'bow'
-    },
-    {
-        'project_title': 'Headphone Multiplexor',
-        'project_id': '2',
-        'project_category': 'audio'
-    },
-    {
-        'project_title': 'Personal Website',
-        'project_id': '3',
-        'project_category': 'web'
-    },
-    {
-        'project_title': 'Recurve Bow',
-        'project_id': '4',
-        'project_category': 'bow'
-    },
-    {
-        'project_title': 'Headphone Multiplexor mk 2',
-        'project_id': '5',
-        'project_category': 'audio'
-    },
-    {
-        'project_title': 'Personal Website',
-        'project_id': '6',
-        'project_category': 'web'
-    }
-];
