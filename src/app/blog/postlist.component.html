@@ -1,1 +1,4 @@
-POSTLIST
+Posts
+<ul>
+    <li *ngFor="let post of posts" routerLink="/posts/{{post.post_id}}"> {{post.post_title}}</li>
+</ul>

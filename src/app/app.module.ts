@@ -15,6 +15,7 @@ import { ProjectService } from './project/project.service';
 import { ProjectThumbComponent } from './project/projectthumb.component';
 import { PostComponent } from './blog/post.component';
 import { PostListComponent } from './blog/postlist.component';
+import { PostService } from './blog/post.service';
  
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,7 +50,8 @@ const appRoutes: Routes = [
     )
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

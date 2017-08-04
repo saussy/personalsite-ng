@@ -1,12 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
+import { PostService } from './post.service';
+
 @Component({
     moduleId: module.id,
     selector: 'post-list',
     templateUrl: 'postlist.component.html'
 })
 export class PostListComponent implements OnInit {
-    constructor() { }
+    posts: any[];
 
-    ngOnInit() { }
+    constructor(
+        private postService: PostService
+    ) { }
+
+    ngOnInit() {
+        this.postService.getAll()
+        .subscribe(
+            (res) => {
+                console.log(res);
+                this.posts = res;
+            }
+        );
+     }
 }
