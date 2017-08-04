@@ -3,6 +3,7 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 
 import ProjectRouter from './Routes/Projects';
+import PostRouter from './Routes/Posts';
 
 class App {
     public express: express.Application;
@@ -21,6 +22,7 @@ class App {
     private routes(): void {
         let router = express.Router();
         this.express.use('/api/v1/projects', ProjectRouter);
+        this.express.use('/api/v1/posts', PostRouter);
     }
 }
 
