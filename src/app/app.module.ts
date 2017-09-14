@@ -17,7 +17,9 @@ import { ProjectThumbComponent } from './project/projectthumb.component';
 import { PostComponent } from './blog/post.component';
 import { PostListComponent } from './blog/postlist.component';
 import { PostService } from './blog/post.service';
- 
+import { TitleComponent } from './title/title.component';
+import { TitleService } from './title/title.service';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'resume', component: ResumeComponent },
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     ProjectListComponent,
     ProjectThumbComponent,
     PostComponent,
-    PostListComponent
+    PostListComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     ProjectService,
-    PostService
+    PostService,
+    TitleService
   ],
   bootstrap: [AppComponent]
 })

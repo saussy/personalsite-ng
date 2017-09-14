@@ -3,11 +3,14 @@
 </h2>
 <span class="blurb">
     A collection of random things I've written
-</span>
-<div class="posts">
+</span>       
+<div *ngIf="posts" class="posts">
     <div class="post-div" *ngFor="let post of posts" routerLink="/posts/{{post.post_id}}"> 
         <span class="post-title">{{post.post_title}}</span>
         <br>
         <span class="post-summary">{{post.post_summary}}</span>
     </div>
+</div>
+<div *ngIf="!posts">
+    No posts to show at the moment.
 </div>

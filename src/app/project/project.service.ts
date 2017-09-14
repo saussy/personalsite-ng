@@ -13,7 +13,7 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class ProjectService {
 
-    private API_URL: string = `/api/v1/projects`;
+    private API_URL: string = `/api/v1/project`;
 
     constructor(private http: Http) {
     }

@@ -1,4 +1,9 @@
 <h2>Projects</h2>
 <div class="projects_div">
+    <div *ngIf="projects">
     <project-thumb *ngFor="let project of projects" [project]="project"></project-thumb>
+    </div>
+    <div *ngIf="!projects">
+        No projects to show at the moment.
+    </div>
 </div>
