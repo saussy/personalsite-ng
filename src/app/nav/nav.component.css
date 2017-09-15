@@ -1,25 +1,32 @@
 div {
-      float:left;
-   width:100%;
+    float:left;
+    width:100%;
     overflow: hidden;
     position:relative;
 }
 ul {
     clear:left;
-   float:left;
+    float:left;
     list-style-type: none;
     display: block;
     margin: auto;
     padding: 0;
     position:relative;
-   left:50%;
+    left:50%;
 }
 li {
     display:block;
-   float:left;
-   position:relative;
-   right:50%;
+    float:left;
+    position:relative;
+    right:50%;
     text-align: center;
     padding: 3px 16px 20px;
     text-decoration: none;
+    cursor: pointer;
+}
+.normal-menu-li {
+    padding: 3px 16px 20px;
+}
+.xs-menu-li {
+    padding: 3px 5px 5px;
 }

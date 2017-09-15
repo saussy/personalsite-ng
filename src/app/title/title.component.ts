@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { Title, TitleService } from './title.service';
 
@@ -9,7 +10,8 @@ import { Title, TitleService } from './title.service';
 })
 export class TitleComponent implements OnInit {
 
-  private title: Title;
+  title: Title;
+  fallback: String = "jaredsaussy.com";
 
   constructor(
     private titleService: TitleService

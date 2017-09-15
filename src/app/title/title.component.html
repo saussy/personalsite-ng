@@ -1,3 +1,7 @@
-<h1>
+<h1 fxShow fxHide.xs="true">
   {{title.title}} 
 </h1>
+<div class="title-fallback" fxHide fxShow.xs="true" routerLink="/">
+  {{fallback}}
+</div>
+<nav-bar></nav-bar>

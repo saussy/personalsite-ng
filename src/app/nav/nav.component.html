@@ -1,9 +1,9 @@
-<div>
+<div class="normal-menu">
 <ul>
-    <li routerLink="/">Home</li>
-    <li routerLink="/bio">Bio</li>
-    <li routerLink="/resume">Resume</li>
-    <li routerLink="/projects">Projects</li>
-    <li routerLink="/posts">Words</li>
+    <li fxShow fxHide.xs="true" routerLink="/">Home</li>
+    <li ngClass="normal-menu-li" [ngClass.xs]="{'normal-menu-li': false, 'xs-menu-li': true}" routerLink="/bio">Bio</li>
+    <li ngClass="normal-menu-li" [ngClass.xs]="{'normal-menu-li': false, 'xs-menu-li': true}" routerLink="/resume">Resume</li>
+    <li ngClass="normal-menu-li" [ngClass.xs]="{'normal-menu-li': false, 'xs-menu-li': true}" routerLink="/projects">Projects</li>
+    <li ngClass="normal-menu-li" [ngClass.xs]="{'normal-menu-li': false, 'xs-menu-li': true}" routerLink="/posts">Words</li>
 </ul>
 </div>

@@ -5,3 +5,9 @@ h1 {
     font-size: 40pt;
     margin-bottom: 5px;
 }
+.title-fallback {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16pt;
+    cursor: pointer;
+}
